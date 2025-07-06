@@ -4,6 +4,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PS1='%F{cyan}%n@%m%f %F{yellow}%1~%f $(git_prompt_info)%# '  # show username, host, cwd, and git branch
+export PATH="$HOME/bin:$PATH"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
