@@ -1,34 +1,36 @@
 /* ~/.config/waybar/style.css */
 
-/* ── 1. Bar backgroud MyGO!!!!! smooth rainbow, slight tilt ─────────────── */
+/* 1. Bar background MyGO!!!!! smooth rainbow, slight tilt */
 window#waybar {
   background: linear-gradient(
-      75deg,
-      /* Tomori ▸ mixing Anon */
-      #77BBDD 0%,          /* start pure Tomori */
-      #77BBDD 15%,
-      #A7C9D9 18%,         /* mix zone 1 */
-      /* Anon ▸ mixing Rāna */
-      #FF8899 25%,         /* pure Anon */
-      #FF9CA4 38%,         /* mix zone 2 */
-      /* Rāna ▸ mixing Soyo */
-      #77DD77 45%,         /* pure Rāna */
-      #9EE49E 58%,         /* mix zone 3 */
-      /* Soyo ▸ mixing Taki */
-      #FFDD88 65%,         /* pure Soyo */
-      #E6CFA0 78%,         /* mix zone 4 */
-      /* Taki end */
-      #7777AA 85%,
-      #7777AA 100%
+    75deg,
+    /* Tomori ▸ mixing Anon */
+    #77BBDD 0%,   /* start pure Tomori */
+    #77BBDD 15%,
+    #A7C9D9 18%,  /* mix zone 1 */
+    /* Anon ▸ mixing Rāna */
+    #FF8899 25%,  /* pure Anon */
+    #FF9CA4 38%,  /* mix zone 2 */
+    /* Rāna ▸ mixing Soyo */
+    #77DD77 45%,  /* pure Rāna */
+    #9EE49E 58%,  /* mix zone 3 */
+    /* Soyo ▸ mixing Taki */
+    #FFDD88 65%,  /* pure Soyo */
+    #E6CFA0 78%,  /* mix zone 4 */
+    /* Taki end */
+    #7777AA 85%,
+    #7777AA 100%
   );
-
   /* band color */
   border-bottom: 2px solid #3388BB;
   transition: background 0.3s ease;
+  opacity: 0.9;
 }
 
 /* 2. Hide when minimized */
-window#waybar.hidden { opacity: 0.3; }
+window#waybar.hidden {
+  opacity: 0.3;
+}
 
 /* 3. Workspace buttons */
 #workspaces button {
@@ -42,21 +44,27 @@ window#waybar.hidden { opacity: 0.3; }
   color: #cdd6f4;
   transition: background 0.2s ease;
 }
-#workspaces button:hover { background-color: rgba(173, 117, 243, 0.6); }
+#workspaces button:hover {
+  background-color: rgba(173, 117, 243, 0.6);
+}
 #workspaces button.active {
   background-color: rgba(56, 181, 230, 0.8);
   color: #181825;
 }
-#workspaces button.urgent { background-color: rgba(243, 139, 168, 0.8); }
+#workspaces button.urgent {
+  background-color: rgba(243, 139, 168, 0.8);
+}
 
-/* 4. Common module base style */
+/* 4. Common module base style (including VPN & PulseAudio) */
 #memory,
 #custom-power,
 #backlight,
 #wireplumber,
 #network,
 #clock,
-#tray {
+#tray,
+#custom-vpn,
+#pulseaudio {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
@@ -64,21 +72,40 @@ window#waybar.hidden { opacity: 0.3; }
   color: #e5e9f0;
   transition: background 0.2s ease;
 }
-#memory:hover       { background-color: rgba(250, 179, 135, 0.6); }
-#wireplumber:hover  { background-color: rgba(249, 226, 175, 0.6); }
-#network:hover      { background-color: rgba(148, 226, 213, 0.6); }
-#clock:hover        { background-color: rgba(173, 117, 243, 0.6); }
-#tray:hover         { background-color: rgba(227, 222, 202, 0.6); }
-#custom-power:hover { background-color: rgba(242, 205, 205, 0.6); }
+#memory:hover {
+  background-color: rgba(250, 179, 135, 0.6);
+}
+#wireplumber:hover {
+  background-color: rgba(249, 226, 175, 0.6);
+}
+#network:hover {
+  background-color: rgba(148, 226, 213, 0.6);
+}
+#clock:hover {
+  background-color: rgba( 85, 170,  85, 0.8);
+}
+#tray:hover {
+  background-color: rgba(227, 222, 202, 0.6);
+}
+#custom-power:hover {
+  background-color: rgba(242, 205, 205, 0.6);
+}
+/* VPN & PulseAudio hover: deeper Taki tone at same opacity level as clock.hover */
+#custom-vpn:hover,
+#pulseaudio:hover {
+  background-color: rgba(102, 102, 153, 0.8);
+}
 
 /* 5. Logo module */
 #custom-logo {
-  padding: 0 10px;             /* keep side paddings */
-  margin: 0;                   /* flush with bar edge */
+  padding: 0 10px;   /* keep side paddings */
+  margin: 0;         /* flush with bar edge */
   font-size: 15px;
-  border-radius: 0;            /* remove round corner */
+  border-radius: 0;  /* remove rounded corner */
 }
-#custom-logo:hover { background-color: rgba(23, 147, 209, 0.8); }
+#custom-logo:hover {
+  background-color: rgba(23, 147, 209, 0.8);
+}
 
 /* 6. Taskbar icons */
 #wlr\/taskbar button {
@@ -87,7 +114,9 @@ window#waybar.hidden { opacity: 0.3; }
   padding: 4px;
   border-radius: 4px;
 }
-#wlr\/taskbar button:hover { background-color: rgba(56, 181, 230, 0.6); }
+#wlr\/taskbar button:hover {
+  background-color: rgba(56, 181, 230, 0.6);
+}
 
 /* 7. Tooltip styling */
 tooltip {
@@ -96,30 +125,4 @@ tooltip {
   background-color: rgba(19, 24, 34, 0.9);
   color: #cdd6f4;
 }
-
-/* VPN region module */
-#custom-vpn {
-  border-radius: 4px;
-  margin: 6px 3px;
-  padding: 6px 12px;
-  background-color: rgba(148, 226, 213, 0.6);  /* light teal */
-  color: #e5e9f0;
-  transition: background 0.2s ease;
-}
-#custom-vpn:hover {
-  background-color: rgba(148, 226, 213, 0.8);
-}
-
-#pulseaudio {
-  border-radius: 4px;
-  margin: 6px 3px;
-  padding: 6px 12px;
-  background-color: rgba(249, 226, 175, 0.6);
-  color: #181825;
-  transition: background 0.2s ease;
-}
-#pulseaudio:hover {
-  background-color: rgba(249, 226, 175, 0.8);
-}
-
 
