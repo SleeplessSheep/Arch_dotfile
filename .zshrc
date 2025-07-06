@@ -1,3 +1,11 @@
+## ~/.zshrc
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -11,7 +19,8 @@ export PATH="$HOME/bin:$PATH"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -100,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # the $ZSH_CUSTOM folder, with .zsh extension. Examples:
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# For a full list of active aliases, run alias.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -117,6 +126,9 @@ alias gd='git diff'               # git diff shortcut
 alias gco='git checkout'          # git checkout shortcut
 alias gp='git push'               # git push shortcut
 alias gl='git pull --rebase'      # git pull with rebase
+alias dotfile='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# To customize prompt, run p10k configure or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 neofetch
-alias dotfile='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
