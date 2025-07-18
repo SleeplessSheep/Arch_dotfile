@@ -2,8 +2,8 @@
 
 hide_scroll=true
 show=drun
-width=30%
-lines=8
+width=40%
+lines=12
 line_wrap=word
 term=kitty
 allow_markup=true
@@ -20,3 +20,4 @@ display_generic=false
 location=center
 key_expand=Tab
 insensitive=false
+sort_order=drun-history
