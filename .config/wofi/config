@@ -2,8 +2,9 @@
 
 hide_scroll=true
 show=drun
-width=40%
-lines=12
+width=50%
+dynamic_lines=true
+columns=2
 line_wrap=word
 term=kitty
 allow_markup=true
@@ -12,7 +13,6 @@ show_all=true
 print_command=true
 layer=overlay
 allow_images=true
-sort_order=alphabetical
 gtk_dark=true
 prompt=
 image_size=20

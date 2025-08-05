@@ -13,7 +13,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export PS1='%F{cyan}%n@%m%f %F{yellow}%1~%f $(git_prompt_info)%# '  # show username, host, cwd, and git branch
 export PATH="$HOME/bin:$PATH"
-
+export EDITOR=nvim
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -128,8 +128,17 @@ alias gco='git checkout'          # git checkout shortcut
 alias gp='git push'               # git push shortcut
 alias gl='git pull --rebase'      # git pull with rebase
 alias dotfile='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias tmux="tmux -2"
+alias wowaddons='cd "/mnt/ssd/battlenet/drive_c/Program Files (x86)/World of Warcraft/_retail_/Interface/AddOns"'
 
 # To customize prompt, run p10k configure or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 neofetch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export PATH="$HOME/.npm-global/bin:$PATH"
